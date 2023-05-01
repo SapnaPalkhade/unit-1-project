@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+font-family: 'Titillium Web', sans-serif;
+display: flex;
+flex-direction: column; /* content vertically */
+justify-content: center; /* align all the content of main axix vartical */
+align-items: center; /* take all items to the center */
+background-color: #12bdac;
+}
+
+header {
+    font-size: 7vmin;
+    color: #545454;
+    letter-spacing: 1vmin;
+}
+
+h1 {
+    color: lightgray;
+    font-size: 3vmin;
+}
+
+#board #board {
+    display: grid;
+    grid-template-columns: repeat(3, 10vmin);
+    grid-template-rows: repeat(3, 10vmin);
+    
+  }
+
+  #board > div {
+    
+    border: 0.01vmin solid grey;
+  }
+  button {
+    margin-top: 4vmin;
+    padding: 2vmin;
+    font-size: 2vmin;
+    border-radius: 4vmin;
+    border: .1vmin solid grey;
+    color: grey;
+  }
+  
+  button:hover {
+    color: white;
+    background-color: grey;
+  }
+  
