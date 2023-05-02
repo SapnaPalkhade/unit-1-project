@@ -21,12 +21,22 @@
 
 
 	/*----- functions -----*/
+	init();
+
 	function init() {
 		turn = 1;
+
+		//// rotate the board array 90 degrees counter-clockwise
 		board = [
 			[0,0,0], // col 0
 			[0,0,0], // col 1
 			[0,0,0], // col 2
 		// r0 r1 r2
-		]
+		];
+		winner = null; // null is indiacates that no winner yet
+		render(); // tranfer the game logic to UI
+	}
+
+	function render() {
+
 	}
