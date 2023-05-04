@@ -34,9 +34,33 @@
 		// r0 r1 r2
 		];
 		winner = null; // null is indiacates that no winner yet
-		render(); // tranfer the game logic to UI
+		render(); 
 	}
-
+    // this function transfer the state of our application to the DOM
 	function render() {
+		renderBoard();
+		renderMessage();
+		
+	}
+
+	function renderBoard() {
+		board.forEach(function(colArr,colIdx) {
+			colArr.forEach(function(rowVal, rowIdx) {
+				const cellId = `c${colIdx}r${rowIdx}`;
+				const cellEl = document.getElementById(cellId);
+				console.log(cellEl);
+
+			});
+		});
 
 	}
+
+	function renderMessage() {
+		if (winner === 'T') {
+		  messageEl.innerText = "It's a Tie!!!";
+		} else if (winner) {
+		  messageEl.innerText = `${PLAYERS[winner].toUpperCase()} Wins!`;
+		} else {
+		  messageEl.innerText = `${PLAYERS[turn].toUpperCase()} turn`;
+		}
+	  }

@@ -1,61 +1,59 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
+
 body {
-    height: 100vh;
-    margin: 0;
-    font-family: 'Roboto Mono', monospace;
-font-family: 'Titillium Web', sans-serif;
-display: flex;
-flex-direction: column; /* content vertically */
-justify-content: center; /* align all the content of main axix vartical */
-align-items: center; /* take all items to the center */
-background-color: #168a7e;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Titillium Web', sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* content vertically */
+  justify-content: center;
+  /* align all the content of main axix vartical */
+  align-items: center;
+  /* take all items to the center */
+  background-color: #168a7e;
 }
 
 header {
-    font-size: 7vmin;
-    color: #545454;
-    letter-spacing: 1vmin;
+  font-size: 7vmin;
+  color: #545454;
+  letter-spacing: 1vmin;
 }
 
 h1 {
-    color: lightgray;
-    font-size: 3vmin;
+  color: lightgray;
+  font-size: 3vmin;
 }
 
- #board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-gap: 15px;
-    margin-top: -1vmin;
-    
-  }
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 15px;
+  margin-top: -1vmin;
 
-  #board > div {
-    
-    height: 200px;
-    width: 200px;
-    background: #0ca192;
-    border: 0.01vmin solid grey;
-  }
-  #board {
-    gap-grid: 15px rgba(161, 12, 12)
+}
 
-  }
-
-  button {
-    margin-top: 4vmin;
-    padding: 2vmin;
-    font-size: 2vmin;
-    border-radius: 4vmin;
-    border: .1vmin solid grey;
-    color: grey;
-  }
+#board>div {
   
-  button:hover {
-    color: white;
-    background-color: grey;
-  }
-  
+  height: 200px;
+  width: 200px;
+  background: #0ca192;
+  border: 0.01vmin solid grey;
+}
+
+button {
+  margin-top: 4vmin;
+  padding: 2vmin;
+  font-size: 2vmin;
+  border-radius: 4vmin;
+  border: .1vmin solid grey;
+  color: grey;
+}
+
+button:hover {
+  color: white;
+  background-color: grey;
+}
