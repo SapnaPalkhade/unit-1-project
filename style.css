@@ -22,7 +22,18 @@ header {
   letter-spacing: 1vmin;
 }
 
-h1 {
+main {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+
+
+h2 {
   color: lightgray;
   font-size: 3vmin;
 }
