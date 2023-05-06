@@ -6,7 +6,7 @@ const PLAYERS = {
 
 };
 
-const winningCombos = [
+const COMBOS = [
 	[0, 1, 2],
 	[3, 4, 5],
 	[6, 7, 8],
@@ -26,7 +26,8 @@ let board,turn,winner;
 const messageEl = document.querySelector('h2');
 const buttonEl = document.querySelector('button');
 const boardEl = document.getElementById('board');
-const boardEls = document.querySelectorAll('#board > div');
+const squareEls = document.querySelectorAll('#board > div');
+
 
 
 /*----- event listeners -----*/
@@ -46,11 +47,22 @@ function init() {
 	winner = null; // null is indiacates that no winner yet
 	render();
 }
+
+
 // this function transfer the state of our application to the DOM
 function render() {
 	renderBoard();
 	renderMessage();	
 
+}
+
+function handleClick(event) {
+	const position = event.target.dataset.index;
+    if(board[position]) return; // exit the function's execution
+   board[position] = turn;
+   turn *= -1;
+   winner = checkWinner();
+   render();
 }
 
 function render() {
