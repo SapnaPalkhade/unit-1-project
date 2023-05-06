@@ -53,8 +53,12 @@ function render() {
 
 }
 
-function renderBoard() {
-	
+function render() {
+	// transfer the state of the game to the DOM
+  squareEls.forEach(function(square, position) {
+    square.textContent = PLAYERS[board[position]];
+  });
+  messageEl.textContent = `Player ${PLAYERS[turn]}'s turn`;
 }
 
 
