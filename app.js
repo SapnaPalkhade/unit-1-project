@@ -48,6 +48,20 @@ function init() {
 	render();
 }
 
+function checkWinner() {
+	for(let i = 0; i < COMBOS.length; i++) {
+	  if(Math.abs(board[COMBOS[i][0]] + 
+				  board[COMBOS[i][1]] + 
+				  board[COMBOS[i][2]]) === 3) {
+		return board[COMBOS[i][0]];
+	  }
+	}
+	if(board.includes(null)) return false;
+	
+	//   prompt('T')
+	return 'T';
+  }
+
 
 // this function transfer the state of our application to the DOM
 function render() {
