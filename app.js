@@ -84,7 +84,15 @@ function render() {
   squareEls.forEach(function(square, position) {
     square.textContent = PLAYERS[board[position]];
   });
-  messageEl.textContent = `Player ${PLAYERS[turn]}'s turn`;
+
+  if(!winner) {
+    messageEl.textContent = `Player ${PLAYERS[turn]}'s turn`;
+  } else if(winner === 'T') {
+  
+     messageEl.textContent = 'Its a Tie!!!';
+  } else {
+     messageEl.textContent = `Player ${PLAYERS[winner]} Wins`;
+  }
 }
 
 
