@@ -30,7 +30,8 @@ const boardEls = document.querySelectorAll('#board > div');
 
 
 /*----- event listeners -----*/
-
+boardEl.addEventListener('click', handleClick);
+buttonEl.addEventListener('click', init);
 
 /*----- functions -----*/
 init();
@@ -56,13 +57,4 @@ function renderBoard() {
 	
 }
 
-function renderMessage() {
-	if (winner === 'T') {
-		messageEl.innerText = "It's a Tie!!!";
-	} else if (winner) {
-		messageEl.innerText = `${PLAYERS[winner].toUpperCase()} Wins!`;
-	} else {
-		messageEl.innerText = `${PLAYERS[turn].toUpperCase()} turn`;
-	}
-}
 
