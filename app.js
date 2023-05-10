@@ -6,6 +6,9 @@ const PLAYERS = {
 
 };
 
+let xWins = 0;
+let oWins = 0;
+
 const COMBOS = [
 	[0, 1, 2],
 	[3, 4, 5],
@@ -87,18 +90,35 @@ function renderBoard() {
 
   if(!winner) {
     messageEl.textContent = `Player ${PLAYERS[turn]}'s turn`; 
+
+	  buttonEl.style.visibility = 'hidden';
+
   } else if(winner === 'T') {
   
      messageEl.textContent = 'Its a Tie!!!';
+
   } else {
      messageEl.textContent = `Player ${PLAYERS[winner]} Wins`;
+
+	  buttonEl.style.visibility = 'visible';
+
+	  if (PLAYERS[winner] === 'X') {
+      xWins++
+      if (xWins === 3) {
+        alert(`${PLAYERS[winner]} Player wins 3 times`)
+        init();
+      }
+    } else {
+      oWins++
+      if (oWins === 3) {
+        alert(`${PLAYERS[winner]} Player wins 3 times`)
+        init();
+      }
+    }
   }
   
 }
 
-function renderControl() {
-	buttonEl.style.visibility = winner ? 'visible' : 'hidden';
 
-}
 
 
