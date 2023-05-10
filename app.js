@@ -63,36 +63,42 @@ function checkWinner() {
   }
 
 
-// this function transfer the state of our application to the DOM
-function render() {
+// // // this function transfer the state of our application to the DOM
+  function render() {
 	renderBoard();
-	renderMessage();	
+    renderControl() 	
 
-}
+ }
 
 function handleClick(event) {
 	const position = event.target.dataset.index;
-    if(board[position]) return; // exit the function's execution
+    if(board[position] || winner) return; // exit the function's execution
    board[position] = turn;
    turn *= -1;
    winner = checkWinner();
    render();
 }
 
-function render() {
+function renderBoard() {
 	// transfer the state of the game to the DOM
   squareEls.forEach(function(square, position) {
     square.textContent = PLAYERS[board[position]];
   });
 
   if(!winner) {
-    messageEl.textContent = `Player ${PLAYERS[turn]}'s turn`;
+    messageEl.textContent = `Player ${PLAYERS[turn]}'s turn`; 
   } else if(winner === 'T') {
   
      messageEl.textContent = 'Its a Tie!!!';
   } else {
      messageEl.textContent = `Player ${PLAYERS[winner]} Wins`;
   }
+  
+}
+
+function renderControl() {
+	buttonEl.style.visibility = winner ? 'visible' : 'hidden';
+
 }
 
 
