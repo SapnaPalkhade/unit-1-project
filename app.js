@@ -105,14 +105,20 @@ function renderBoard() {
 	  if (PLAYERS[winner] === 'X') {
       xWins++
       if (xWins === 3) {
+		// Wait for 1 second before announcing the winner
+		setTimeout(function() {
         alert(`${PLAYERS[winner]} Player wins 3 times`)
         init();
+		},1000);
       }
     } else {
       oWins++
       if (oWins === 3) {
+		// Wait for 1 second before announcing the winner
+		setTimeout(function() {
         alert(`${PLAYERS[winner]} Player wins 3 times`)
         init();
+		},1000);
       }
     }
   }
