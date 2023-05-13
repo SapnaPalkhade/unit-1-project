@@ -1,8 +1,8 @@
 /*----- constants -----*/
 const PLAYERS = {
-'1': 'X',
-'-1': 'O',
-'null': ''
+	'1': 'X',
+	'-1': 'O',
+	'null': ''
 
 };
 
@@ -18,10 +18,10 @@ const COMBOS = [
 	[2, 5, 8],
 	[0, 4, 8],
 	[2, 4, 6]
-  ];
+];
 
-/*----- app's state (variables) -----*/
-let board,turn,winner;
+/*----- variable  (app's state ) data that changes -----*/
+let board, turn, winner;
 
 
 
@@ -38,91 +38,97 @@ boardEl.addEventListener('click', handleClick);
 buttonEl.addEventListener('click', init);
 
 /*----- functions -----*/
+
+/* start the game upon initial load whenever the reset button is clicked */
+
 init();
 
 
 // Initialize all state variables, then call render()
 function init() {
-    board = [null, null, null, null, null, null, null, null, null];
+	board = [null, null, null, null, null, null, null, null, null];
 	// OR initialize like this:
-  // board = new Array(9).fill(null);
+	// board = new Array(9).fill(null);
 	turn = 1;
 	winner = null; // null is indiacates that no winner yet
 	render();
 }
 
 function checkWinner() {
-	for(let i = 0; i < COMBOS.length; i++) {
-	  if(Math.abs(board[COMBOS[i][0]] + 
-				  board[COMBOS[i][1]] + 
-				  board[COMBOS[i][2]]) === 3) {
-		return board[COMBOS[i][0]];
-	  }
+	for (let i = 0; i < COMBOS.length; i++) {
+		if (Math.abs(board[COMBOS[i][0]] +
+			board[COMBOS[i][1]] +
+			board[COMBOS[i][2]]) === 3) {
+			return board[COMBOS[i][0]];
+		}
 	}
-	if(board.includes(null)) return false;
-	
+	if (board.includes(null)) return false;
+
 	//   prompt('T')
 	return 'T';
-  }
+}
 
 
 // // // this function transfer the state of our application to the DOM
-  function render() {
+function render() {
 	renderBoard();
-    renderControl() 	
+	renderControl()
 
- }
+}
 
 function handleClick(event) {
 	const position = event.target.dataset.index;
-    if(board[position] || winner) return; // exit the function's execution
-   board[position] = turn;
-   turn *= -1;
-   winner = checkWinner();
-   render();
+	if (board[position] || winner) return; // exit the function's execution
+	board[position] = turn;
+	turn *= -1;
+	winner = checkWinner();
+	render();
 }
 
 function renderBoard() {
 	// transfer the state of the game to the DOM
-  squareEls.forEach(function(square, position) {
-    square.textContent = PLAYERS[board[position]];
-  });
+	squareEls.forEach(function (square, position) {
+		square.textContent = PLAYERS[board[position]];
+	});
 
-  if(!winner) {
-    messageEl.textContent = `Player ${PLAYERS[turn]}'s turn`; 
+	if (!winner) {
+		messageEl.textContent = `Player ${PLAYERS[turn]}'s turn`;
 
-	  buttonEl.style.visibility = 'hidden';
+		buttonEl.style.visibility = 'hidden';
 
-  } else if(winner === 'T') {
-  
-     messageEl.textContent = 'Its a Tie!!!';
+	} else if (winner === 'T') {
 
-  } else {
-     messageEl.textContent = `Player ${PLAYERS[winner]} Wins`;
+		messageEl.textContent = 'Its a Tie!!!';
 
-	  buttonEl.style.visibility = 'visible';
 
-	  if (PLAYERS[winner] === 'X') {
-      xWins++
-      if (xWins === 3) {
-		// Wait for 1 second before announcing the winner
-		setTimeout(function() {
-        alert(`${PLAYERS[winner]} Player wins 3 times`)
-        init();
-		},1000);
-      }
-    } else {
-      oWins++
-      if (oWins === 3) {
-		// Wait for 1 second before announcing the winner
-		setTimeout(function() {
-        alert(`${PLAYERS[winner]} Player wins 3 times`)
-        init();
-		},1000);
-      }
-    }
-  }
-  
+
+
+	} else {
+		messageEl.textContent = `Player ${PLAYERS[winner]} Wins`;
+
+		buttonEl.style.visibility = 'visible';
+
+		if (PLAYERS[winner] === 'X') {
+			xWins++
+			if (xWins === 3) {
+				// Wait for 1 second before announcing the winner
+				setTimeout(function () {
+					alert(`${PLAYERS[winner]} Player wins 3 times`)
+					init();
+				}, 1000);
+			}
+		} else {
+			oWins++
+			if (oWins === 3) {
+				// Wait for 1 second before announcing the winner
+				setTimeout(function () {
+					alert(`${PLAYERS[winner]} Player wins 3 times`)
+					init();
+				}, 1000);
+			}
+		}
+	}
+
 }
 
 
