@@ -48,11 +48,16 @@ h2 {
 }
 
 #board>div {
-  
+  display: flex;
   height: 200px;
   width: 200px;
   background: #0ca192;
   border: 0.01vmin solid grey;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  font-weight: bold;
+  color: #545454;
 }
 
 button {
